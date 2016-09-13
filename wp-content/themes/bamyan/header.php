@@ -44,9 +44,8 @@
              </svg>
          </div>
 
-
-         <nav id="menu" class="nav-collapse">
-             <ul id="menu">
+         <nav id="menu">
+             <ul>
                  <li class="current"><a href="index.html">home</a></li>
                  <li><a href="about.html">about</a></li>
                  <li><a href="work.html">our work</a></li>

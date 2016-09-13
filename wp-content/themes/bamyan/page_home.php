@@ -26,17 +26,22 @@ get_header();
         <div class="section" id="section2" data-midnight="white">
             <div class="container vertical-center">
                 <div class="col-md-6">
-                    <img src="img/tv.png" class="img-responsive">
+                  <?php
+
+$image = get_field('intro_pic');
+
+if( !empty($image) ): ?>
+
+<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+
+<?php endif; ?>
                 </div>
                 <div class="col-md-6">
                     <div class="text h-padding-sm h-width">
-                        <h1 class="white">MORE THAN TV</h1><br>
-                        <p class="white">All good TV, any good story, a great piece of
-                            content, will move people. We create content that gives that movement direction.</p>
+                        <h1 class="white"><?php the_field('intro_heading'); ?></h1><br>
+                        <p class="white"><?php the_field('intro_paragraph'); ?></p>
 
-                           <p class="white">We've been at the forefront of this type of
-                            content creation and collaboration for years,
-                          with a track record to show for it.</p>
+                           <p class="white"><?php the_field('intro_paragraph2'); ?></p>
                     </div>
                 </div>
             </div>
@@ -46,14 +51,14 @@ get_header();
             <div class="container">
                 <div class="col-md-3">
                     <div class="text h-padding-sm">
-                        <h1 class="h-textleft white">WHAT WE DO</h1>
-                        <p class="h-textleft white">We go beyond TV. We create reality TV shows that drive social change. By partnering with local teams, we can shed light on social issues through the medium of reality TV. <b class="yellow">Read more..</b>
+                        <h1 class="h-textleft white"><?php the_field('s1_heading'); ?></h1>
+                        <p class="h-textleft white"><?php the_field('s1_paragraph'); ?><b class="yellow">Read more..</b>
                         </p>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OVnXy-kCtSc" frameborder="0" allowfullscreen></iframe>
+                        <iframe class="embed-responsive-item" src="<?php the_field('s1_video'); ?>" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -61,15 +66,37 @@ get_header();
 
         <div class="section" id="section4" data-midnight="black">
             <div class="container">
-                <div class="col-md-4 h-padding-sm"><img src="img/handshake.png" class="img-responsive"></div>
-                <div class="col-md-4 h-padding-sm"><img src="img/script.png" class="img-responsive"></div>
-                <div class="col-md-4 h-padding-sm"><img src="img/camcorder.png" class="img-responsive"></div>
+                <div class="col-md-4 h-padding-sm">                  <?php
+
+                $image = get_field('s2_pic1');
+
+                if( !empty($image) ): ?>
+
+                <img src="<?php echo $image['url']; ?>" class="img-responsive" alt="<?php echo $image['alt']; ?>" />
+
+                <?php endif; ?></div>
+                <div class="col-md-4 h-padding-sm">                  <?php
+
+                $image = get_field('s2_pic2');
+
+                if( !empty($image) ): ?>
+
+                <img src="<?php echo $image['url']; ?>" class="img-responsive" alt="<?php echo $image['alt']; ?>" />
+
+                <?php endif; ?></div>
+                <div class="col-md-4 h-padding-sm">                  <?php
+
+                $image = get_field('s2_pic3');
+
+                if( !empty($image) ): ?>
+
+                <img src="<?php echo $image['url']; ?>" class="img-responsive" alt="<?php echo $image['alt']; ?>" />
+
+                <?php endif; ?></div>
                 <div class="col-md-12 h-padding-md">
                     <div class="text h-width">
-                    <h1 class="black">HOW WE DO IT</h1>
-                    <p class="black">We go beyond TV. We create reality TV shows that drive
-                     social change. By partnering with local teams, we can shed
-                         light on social issues through the medium of reality TV. <b class="blue">Read more..</b>
+                    <h1 class="black"><?php the_field('s2_heading'); ?></h1>
+                    <p class="black"><?php the_field('s2_paragraph'); ?><b class="blue">Read more..</b>
                     </p>
                 </div>
                     </div>
@@ -79,97 +106,99 @@ get_header();
         <div class="section" id="section5" data-midnight="yellow">
             <div class="container">
                 <div class="col-md-12">
-                    <h1 class="yellow h-padding-sm">OUR COMPANY</h1>
-                    <p class="yellow">We are a team of 5-50 (depending on projects) talented
-                        <br> young people from really different backgrounds. We are a
-                        <br> hybrid social enterprise: a US-registered non-profit parent
-                        <br> company with for-profit subsidiaries. We are currently based
-                        <br> in Cairo, Egypt. But we live and work at large.
+                    <h1 class="yellow h-padding-sm"><?php the_field('s3_heading'); ?></h1>
+                    <p class="yellow"><?php the_field('s3_paragraph'); ?>
                     </p>
                 </div>
             </div>
-<img src="img/gallery.png" class="img-responsive">
+            <?php
+
+            $image = get_field('s3_pic');
+
+            if( !empty($image) ): ?>
+
+            <img src="<?php echo $image['url']; ?>" class="img-responsive" alt="<?php echo $image['alt']; ?>" />
+
+            <?php endif; ?>
         </div>
+
         <div class="section" id="section6" data-midnight="blue">
-            <div class="container">
-                <div class="col-md-12 h-padding-lg">
-                    <h1 class="black">OUR PARTNERSHIPS</h1>
-                </div>
-                <div class="col-md-3">
-                    <img src="img/usaid.png" class="img-responsive">
-                    <h2 class="black">USAID</h2>
-                    <p class="black"> We are a team of 5-50 (depending on projects) talented young people from really different backgrounds. We are a hybrid social enterprise: a US-registered non-profit parent co
-                    </p>
-                </div>
-                <div class="col-md-3">
-                    <img src="img/banijay.png" class="img-responsive">
-                    <h2 class="black">Banijay Group</h2>
-                    <p class="black"> We are a team of 5-50 (depending on projects) talented young people from really different backgrounds. We are a hybrid social enterprise: a US-registered non-profit parent co
-                    </p>
-                </div>
-                <div class="col-md-3">
-                    <img src="img/banijay.png" class="img-responsive">
-                    <h2 class="black">Banijay Group</h2>
-                    <p class="black"> We are a team of 5-50 (depending on projects) talented young people from really different backgrounds. We are a hybrid social enterprise: a US-registered non-profit parent co
-                    </p>
-                </div>
-                <div class="col-md-3">
-                    <img src="img/usaid.png" class="img-responsive">
-                    <h2 class="black">USAID</h2>
-                    <p class="black"> We are a team of 5-50 (depending on projects) talented young people from really different backgrounds. We are a hybrid social enterprise: a US-registered non-profit parent co
-                    </p>
-                </div>
-            </div>
+
+          <?php if( have_rows('partners') ): ?>
+
+            <div class="slide">
+              <div class="container">
+                  <div class="col-md-12 h-padding-lg">
+                      <h1 class="black"><?php the_field('s4_heading'); ?></h1>
+                  </div>
+
+	<?php while( have_rows('partners') ): the_row();
+
+		// vars
+		$image = get_sub_field('partner_pic');
+		$name = get_sub_field('partner_name');
+		$paragraph = get_sub_field('partner_paragraph');
+
+		?>
+
+  <div class="col-md-3">
+
+				<img src="<?php echo $image['url']; ?>" class="img-responsive" alt="<?php echo $image['alt'] ?>" />
+        <h2 class="black"><?php echo $name; ?></h2>
+        <p class="black"> <?php echo $paragraph; ?></p>
+
         </div>
+
+	<?php endwhile; ?>
+
+</div>
+</div>
+
+<?php endif; ?>
+
+        </div>
+
         <div class="section" id="section7" data-midnight="blue">
             <div class="container">
                 <div class="col-md-6 h-padding-sm">
-                    <h1 class="black">WANT TO WORK <br> WITH US?</h1>
-                    <p class="black">Contact us directly for more information. We
-                        <br> will get back to you as soon as we can!
-                        <br> To read more about us, <b>click here</b></p>
+                    <h1 class="black"><?php the_field('heading'); ?></h1>
+                    <p class="black"><?php the_field('description'); ?><b>click here</b></p>
                     <br>
                     <br>
-                    <p class="black">Bamyan Media, Inc. <br>
-                    full addresss</p>
-                    <p class="black">email address <br>
-                    postal address</p>
+                    <p class="black"><?php the_field('company_name'); ?><br>
+                    <?php the_field('address'); ?></p>
+                    <p class="black"><?php the_field('email'); ?><br>
+                    <?php the_field('postal'); ?></p>
+
                     <div class="social">
+                      <a href="<?php the_field('facebook'); ?>">
                         <span class="fa-stack fa-lg">
   <i class="fa fa-circle fa-stack-2x"></i>
   <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-</span>
+</span> </a>
+<a href="<?php the_field('twitter'); ?>">
                         <span class="fa-stack fa-lg">
   <i class="fa fa-circle fa-stack-2x"></i>
   <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
+</span> </a>
+<a href="<?php the_field('youtube'); ?>">
                         <span class="fa-stack fa-lg">
   <i class="fa fa-circle fa-stack-2x"></i>
   <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-</span>
+</span> </a>
+<a href="<?php the_field('vimeo'); ?>">
                         <span class="fa-stack fa-lg">
   <i class="fa fa-circle fa-stack-2x"></i>
   <i class="fa fa-vimeo fa-stack-1x fa-inverse"></i>
-</span>
+</span> </a>
                     </div>
                 </div>
                 <div class="col-md-6 h-paddingp-sm">
-                    <form id="contact-form" class="contact-form" action="">
-                        <p class="contact-name">
-                            <input id="contact_name" type="text" placeholder="name" value="" name="name" />
-                        </p>
-                        <p class="contact-email">
-                            <input id="contact_email" type="text" placeholder="email address" value="" name="email" />
-                        </p>
-                        <p class="contact-message">
-                            <textarea id="contact_message" placeholder="message" name="message" rows="8" cols="40"></textarea>
-                        </p>
-                        <p class="contact-submit">
-                            <a id="contact-submit" class="submit" value="submit" href="#">SUBMIT</a>
-                        </p>
-                        <div id="response">
-                        </div>
-                    </form>
+
+                  <div id="contact-form" class="contact-form" action="">
+
+                  <?php echo do_shortcode( '[contact-form-7 id="16" title="Home"]' ); ?>
+
                 </div>
             </div>
         </div>
@@ -180,7 +209,7 @@ get_header();
         <script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.js"></script>
         <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/src/vendor/js/jquery.fullPage.min.js"></script>
         <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
-        <script src="<?php echo get_template_directory_uri(); ?>/pagejs/midnight.jquery.min.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/js/midnight.jquery.min.js"></script>
         <script>
         		$(".menu-opener").click(function () {
         				$(".menu-opener, .menu-opener-inner, .menu").toggleClass("active");

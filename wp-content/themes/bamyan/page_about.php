@@ -25,8 +25,8 @@ get_header();
         <div class="container">
             <div class="col-md-12">
                 <div class=" text h-width">
-                    <h2 class="black">OUR STORY</h2>
-                    <p class="black">founded in 2010, we have worked in Afganistan and Egypt where we did, and now we have projects in and others in development. we believe that.</p>
+                    <h2 class="black"><?php the_field('s1_heading'); ?></h2>
+                    <p class="black"><?php the_field('s1_paragraph'); ?></p>
                 </div>
             </div>
         </div>
@@ -44,8 +44,8 @@ get_header();
                     </svg>
                 </div>
                 <div class="text h-width">
-                    <h2 class="black">THE DONKEY</h2>
-                    <p class="black">Re-written anecdote of the donkey/straw sumggling.</p>
+                    <h2 class="black"><?php the_field('s2_heading'); ?></h2>
+                    <p class="black"><?php the_field('s2_paragraph'); ?></p>
                 </div>
             </div>
         </div>
@@ -55,8 +55,9 @@ get_header();
     <div class="section" id="section3" data-midnight="blue">
         <div class="container">
             <div class="col-md-12">
-                <h2 class="black">THE TEAM</h2>
-                <h4 class="black">CORE TEAM</h4>
+                <h2 class="black"><?php the_field('s3_heading'); ?></h2>
+                <h4 class="black"><?php the_field('s3_subheading'); ?></h4>
+                <p><?php the_field('s3_paragraph'); ?></p>
             </div>
         </div>
     </div>
@@ -65,31 +66,63 @@ get_header();
         <div class="container">
             <div class="col-md-12">
                 <div class="h-width-e h-padding-sm">
-                    <h1 class="black">THE MODEL</h1>
-                    <p class="black"> We are a team of 5-50 (depending on projects) talented young people from really different backgrounds. We are a hybrid social enterprise: a US-registered non-profit parent company with for-profit subsidiaries. We are currently based in Cairo, Egypt. But we live and work at large.
-                    </p>
+                    <h1 class="black"><?php the_field('s4_heading'); ?></h1>
+                    <p class="black"><?php the_field('s4_paragraph'); ?></p>
                 </div>
             </div>
-            <div class="col-md-6 h-textleft">
-                <h3 class="black">Design For Impact</h3>
-                <p class="black">Using a highly participatory lab process we design new TV formats around a compelling social issue, and test prototypes online and through focus-group research to ensure a show is both entertaining and achieves specific behaviour change objectives.
-                    <br> We co-create interventions with partners and experts from diverse sectors in order to have systematic impact: the government, private sector, education bodies, media, community organisations, and most importantly, our target audience. All stakeholders work together to improve outcomes, design rapid prototypes, and respond to feedback.</p>
-            </div>
-            <div class="col-md-6">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe>
+
+            <?php if( have_rows('video_combo_right') ): ?>
+
+            	<div class="col-md-6 h-textleft">
+
+            	<?php while( have_rows('video_combo_right') ): the_row();
+
+            		// vars
+            		$heading = get_sub_field('combo_heading');
+            		$paragraph = get_sub_field('combo_paragraph');
+            		$video = get_sub_field('combo_video');
+
+            		?>
+                <h3 class="black"><?php echo $heading; ?></h3>
+                <p class="black"><?php echo $paragraph; ?></p>
+
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe>
+
+                    <div class="col-md-6">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="<?php echo $video; ?>"></iframe>
+                        </div>
+                          </div>
+
+            	<?php endwhile; ?>
+            <?php endif; ?>
+
+            <?php if( have_rows('video_combo_left') ): ?>
+
+            	<?php while( have_rows('video_combo_left') ): the_row();
+
+              // vars
+              $heading = get_sub_field('combo_heading');
+              $paragraph = get_sub_field('combo_paragraph');
+              $video = get_sub_field('combo_video');
+
+              ?>
+
+              <div class="col-md-6">
+                  <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" src="<?php echo $video; ?>"></iframe>
+                  </div>
+                    </div>
+
+                <div class="col-md-6">
+                <h3 class="black"><?php echo $heading; ?></h3>
+                <p class="black"><?php echo $paragraph; ?></p>
                 </div>
-            </div>
-            <div class="col-md-6 h-textleft">
-                <h3 class="black">Design For Impact</h3>
-                <p class="black">Using a highly participatory lab process we design new TV formats around a compelling social issue, and test prototypes online and through focus-group research to ensure a show is both entertaining and achieves specific behaviour change objectives.
-                    <br> We co-create interventions with partners and experts from diverse sectors in order to have systematic impact: the government, private sector, education bodies, media, community organisations, and most importantly, our target audience. All stakeholders work together to improve outcomes, design rapid prototypes, and respond to feedback.</p>
-            </div>
+
+
+            	<?php endwhile; ?>
+            <?php endif; ?>
+
         </div>
     </div>
 
@@ -97,10 +130,10 @@ get_header();
         <div class="container">
             <div class="text h-width">
                 <div class="col-md-12">
-                    <h1 class="black">CASE STUDY</h1>
+                    <h1 class="black"><?php the_field('s5_heading'); ?></h1>
                 </div>
                 <div class="col-md-12">
-                    <p class="black">Explain the whole start-to-finish process using El Mashroua as a case study.</p>
+                    <p class="black"><?php the_field('s5_paragraph'); ?></p>
                 </div>
             </div>
         </div>
@@ -108,40 +141,39 @@ get_header();
 
     <div class="section" id="section6" data-midnight="black">
         <div class="container">
-            <div class="col-md-6 h-paddingp-sm">
-                <h1 class="black">WANT TO WORK <br> WITH US?</h1>
-                <p class="black">Contact us directly for more information. We
-                    <br> will get back to you as soon as we can!
-                    <br> To read more about us, <b>click here</b></p>
-                <br>
-                <br>
-                <p class="black">Bamyan Media, Inc.
-                    <br> full addresss</p>
-                <p class="black">email address
-                    <br> postal address</p>
-                <div class="social">
+          <div class="col-md-6 h-padding-sm">
+              <h1 class="black"><?php the_field('heading'); ?></h1>
+              <p class="black"><?php the_field('description'); ?><b>click here</b></p>
+              <br>
+              <br>
+              <p class="black"><?php the_field('company_name'); ?><br>
+              <?php the_field('address'); ?></p>
+              <p class="black"><?php the_field('email'); ?><br>
+              <?php the_field('postal'); ?></p>
 
-                    <span class="fa-stack fa-lg">
+              <div class="social">
+                <a href="<?php the_field('facebook'); ?>">
+                  <span class="fa-stack fa-lg">
 <i class="fa fa-circle fa-stack-2x"></i>
 <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-</span>
-                    <span class="fa-stack fa-lg">
+</span> </a>
+<a href="<?php the_field('twitter'); ?>">
+                  <span class="fa-stack fa-lg">
 <i class="fa fa-circle fa-stack-2x"></i>
 <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-                    <span class="fa-stack fa-lg">
+</span> </a>
+<a href="<?php the_field('youtube'); ?>">
+                  <span class="fa-stack fa-lg">
 <i class="fa fa-circle fa-stack-2x"></i>
 <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-</span>
-                    <span class="fa-stack fa-lg">
+</span> </a>
+<a href="<?php the_field('vimeo'); ?>">
+                  <span class="fa-stack fa-lg">
 <i class="fa fa-circle fa-stack-2x"></i>
 <i class="fa fa-vimeo fa-stack-1x fa-inverse"></i>
-</span>
-
-                </div>
-
-
-            </div>
+</span> </a>
+              </div>
+          </div>
             <div class="col-md-6 h-paddingp-sm">
                 <form id="contact-form-alt" class="contact-form" action="">
                     <p class="contact-name">
@@ -167,7 +199,7 @@ get_header();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/src/vendor/js/jquery.fullPage.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/src/vendor/js/jquery.fullpage.min.js"></script>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/midnight.jquery.min.js"></script>
     <script>
@@ -231,8 +263,6 @@ get_header();
             });
         });
     </script>
-
-
 
 </body>
 
